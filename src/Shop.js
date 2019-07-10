@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Shop() {
   useEffect(() => {
@@ -19,7 +20,11 @@ export default function Shop() {
   return (
     <div>
       {items.map(item => (
-        <h1 key={item.itemid}>{item.name}</h1>
+        <h1 key={item.itemid}>
+          <Link to={`/shop/${item.itemid}`} id={item.itemid}>
+            {item.name}
+          </Link>
+        </h1>
       ))}
     </div>
   );
